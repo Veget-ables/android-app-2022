@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "android-app-2022"
-include ':app'
-include ':ui-top'
+
+include(":app", ":ui-top")
