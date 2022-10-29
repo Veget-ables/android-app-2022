@@ -1,5 +1,5 @@
 [versions]
-androidPlugin = "8.0.0-alpha03"
+androidPlugin = "8.0.0-alpha05"
 androixXCoreKtx = "1.8.0"
 androidxLifecycleRuntimeKtx = "2.3.1"
 androidxActivityCompose = "1.5.1"
