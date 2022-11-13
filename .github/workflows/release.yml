@@ -26,7 +26,12 @@ jobs:
           distribution: 'zulu'
           java-version: 11
 
-      - name: Decode Keystore & Gcloud Service Key
+      - name: Set gradle properties
+        run: |
+          echo "ORG_GRADLE_PROJECT_VERSION_CODE=$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
+          echo "ORG_GRADLE_PROJECT_BUILD_NUMBER=$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
+
+      - name: Download Keystore & Gcloud Service Key
         run: |
           echo ${{ secrets.UPLOAD_KEYSTORE }} | base64 --decode > upload.keystore
           echo "${{ secrets.GCLOUD_SERVICE_ACCOUNT_JSON }}" | base64 --decode --ignore-garbage > gcloud_service_key.json
