@@ -17,8 +17,8 @@ android {
 
     defaultConfig {
         applicationId = "com.practice.android_app_2022"
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = properties["VERSION_CODE"] as Int
+        versionName = (properties["VERSION_NUMBER"] as String) + "-build:" + (properties["BUILD_NUMBER"] as String)
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
