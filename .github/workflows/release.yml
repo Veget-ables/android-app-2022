@@ -26,13 +26,22 @@ jobs:
           distribution: 'zulu'
           java-version: 11
 
+      - name: Decode Keystore & Gcloud Service Key
+        run: |
+          echo ${{ secrets.UPLOAD_KEYSTORE }} | base64 --decode > ${{ upload.keystore }}
+          echo "${{ secrets.GCLOUD_SERVICE_KEY }}" | base64 --decode --ignore-garbage > gcloud_service_key.json
+
       - name: Build app
-        run: ./gradlew :app:assembleRelease
+        run: ./gradlew :app:bundleRelease
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
       - name: Deploy to Play Store
         uses: r0adkll/upload-google-play@v1
         with:
-          serviceAccountJsonPlainText: ${{ SERVICE_ACCOUNT_JSON }}
+          serviceAccountJson: gcloud_service_key.json
           packageName: com.example.android_app_2022
           releaseFiles: app/app-release.aab
           track: internal
