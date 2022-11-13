@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.android_app_2022"
+    namespace = "com.practice.android_app_2022"
 
     signingConfigs {
         create("release") {
@@ -16,7 +16,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.android_app_2022"
+        applicationId = "com.practice.android_app_2022"
         versionCode = 1
         versionName = "1.0"
 

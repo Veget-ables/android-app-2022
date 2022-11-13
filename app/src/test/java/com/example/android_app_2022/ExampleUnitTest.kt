@@ -1,4 +1,4 @@
-package com.example.android_app_2022
+package com.practice.android_app_2022
 
 import org.junit.Test
 

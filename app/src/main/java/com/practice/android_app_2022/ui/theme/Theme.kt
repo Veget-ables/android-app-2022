@@ -1,4 +1,4 @@
-package com.example.android_app_2022.ui.theme
+package com.practice.android_app_2022.ui.theme
 
 import android.app.Activity
 import android.os.Build
