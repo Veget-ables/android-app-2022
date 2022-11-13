@@ -48,5 +48,6 @@ jobs:
         with:
           serviceAccountJson: gcloud_service_key.json
           packageName: com.practice.android_app_2022
-          track: test
+          track: internal
+          status: draft
           releaseFiles: app/build/outputs/bundle/release/app-release.aab
