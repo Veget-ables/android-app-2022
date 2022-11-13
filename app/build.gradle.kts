@@ -17,8 +17,8 @@ android {
 
     defaultConfig {
         applicationId = "com.practice.android_app_2022"
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = propOrDef("VERSION_CODE", "1").toInt()
+        versionName = propOrDef("VERSION_NUMBER", "0") + "-build:" + propOrDef("BUILD_NUMBER", "develop")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -58,4 +58,10 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+}
+
+fun <T : Any> propOrDef(propertyName: String, defaultValue: T): T {
+    @Suppress("UNCHECKED_CAST")
+    val propertyValue = project.properties[propertyName] as T?
+    return propertyValue ?: defaultValue
 }
