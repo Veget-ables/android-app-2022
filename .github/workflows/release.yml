@@ -28,7 +28,7 @@ jobs:
 
       - name: Decode Keystore & Gcloud Service Key
         run: |
-          echo ${{ secrets.UPLOAD_KEYSTORE }} | base64 --decode > ${{ upload.keystore }}
+          echo ${{ secrets.UPLOAD_KEYSTORE }} | base64 --decode > upload.keystore
           echo "${{ secrets.GCLOUD_SERVICE_KEY }}" | base64 --decode --ignore-garbage > gcloud_service_key.json
 
       - name: Build app
