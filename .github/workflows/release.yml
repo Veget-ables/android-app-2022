@@ -43,5 +43,5 @@ jobs:
         with:
           serviceAccountJson: gcloud_service_key.json
           packageName: com.example.android_app_2022
-          releaseFiles: app/app-release.aab
+          releaseFiles: app/build/outputs/bundle/release/app-release.aab
           track: internal
